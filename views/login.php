@@ -10,13 +10,9 @@
 </head>
 
 <body>
+
+    <?php include_once 'layouts/header.php' ?>
     
-    <header>
-
-        <p>Dolphin CRM</p>
-
-    </header>
-
     <main>
 
         <h1>Login</h1>
@@ -36,6 +32,8 @@
             <button type="submit">Login</button>
 
     </main>
+
+    <?php include_once 'footer.php' ?>
 
 </body>
 
