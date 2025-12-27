@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body class="app">
 
     <?php include_once 'layouts/header.php' ?>
     <?php include_once 'layouts/menu.php' ?>
@@ -19,56 +19,63 @@
 
         <h1>New Contact</h1>
 
-        <div class="wrapper">
+        <form action="" method="post" class="box">
 
-            <form action="" method="post">
+            <div class="form-field full no-margin">
+                <label for="title">Title</label>
+                <select id="title" name="title" class="auto-left auto-width">
+                    <option value="Mr">Mr</option>
+                    <option value="Ms">Ms</option>
+                    <option value="Mrs">Mrs</option>
+                </select>
+            </div>
 
+            <div class="form-field">
                 <label for="first-name">First Name:</label>
                 <input type="text" id="first-name" name="first-name" required>
+            </div>
 
-                <br>
-
+            <div class="form-field">
                 <label for="last-name">Last Name:</label>
                 <input type="text" id="last-name" name="last-name" required>
+            </div>
 
-                <br>
-
+            <div class="form-field">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+            </div>
 
-                <br>
-
+            <div class="form-field">
                 <label for="telephone">Telephone:</label>
                 <input type="tel" id="telephone" name="telephone" required>
+            </div>
 
-                <br>
-
+            <div class="form-field">
                 <label for="company">Company:</label>
                 <input type="text" id="company" name="company" required>
+            </div>
 
-                <br>
-
+            <div class="form-field">
                 <label for="type">Type</label>
                 <select id="type" name="type">
                     <option value="sales-lead">Sales Lead</option>
                     <option value="support">Support</option>
                 </select>
+            </div>
 
-                <br>
-
+            <div class="form-field">
                 <label for="assigned-to">Assigned To</label>
                 <select id="assigned-to" name="assigned-to">
                     <option value="Andy">Andy Bernard</option>
                     <option value="Joshua">Joshua Smith</option>
                 </select>
+            </div>
 
-                <br>
+            <div class="form-field full">    
+                <button type="submit" class="auto-right">Save</button>
+            </div>
 
-                <button type="submit">Save</button>
-
-            </form>
-
-        </div>
+        </form>
 
     </main>
 

@@ -5,11 +5,12 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styling.css">
     <title>Document</title>
 
 </head>
 
-<body>
+<body class="login">
 
     <?php include_once 'layouts/header.php' ?>
     
@@ -19,21 +20,19 @@
 
         <form action="" method="post">
 
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-
-            <br>
+            <label for="email-address">Email:</label>
+            <input type="email" id="email-address" name="email-address" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-            <br>
+            <button>Login</button>
 
-            <button type="submit">Login</button>
+        </form>
 
     </main>
 
-    <?php include_once 'footer.php' ?>
+    <?php include_once 'layouts/footer.php' ?>
 
 </body>
 

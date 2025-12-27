@@ -10,35 +10,39 @@
 
 </head>
 
-<body>
+<body class="app">
 
     <?php include_once 'layouts/header.php' ?>
     <?php include_once 'layouts/menu.php' ?>
     
     <main>
 
-        <h1>Users</h1>
-        <button>Add User</button>
+        <div class="flex space-between">
+            <h1>Users</h1>
+            <button>Add User</button>
+        </div>
         
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Created</th>
-                </tr>
-            </thead>
+        <div class="box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr>
-                    <td>Ms. Jan Levinson</td>
-                    <td>jan.levinson@paper.co</td>
-                    <td>Member</td>
-                    <td>2022-11-13 11:00</td>
-                </tr>
-            </tbody>
-        </table>
+                <tbody>
+                    <tr>
+                        <td>Ms. Jan Levinson</td>
+                        <td>jan.levinson@paper.co</td>
+                        <td>Member</td>
+                        <td>2022-11-13 11:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </main>
 

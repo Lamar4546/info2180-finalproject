@@ -10,18 +10,19 @@
 
 </head>
 
-<body>
+<body class="app">
 
     <?php include_once 'layouts/header.php' ?>
     <?php include_once 'layouts/menu.php' ?>
     
     <main>
 
-        <h1>Users</h1>
-        <button>Add User</button>
+        <div class="flex space-between">
+            <h1>Dashboard</h1>
+            <button>Add Contact</button>
+        </div>
 
-        <div class="wrapper">
-
+        <div class="box">
             <div id="filter">
                 Filter by: 
                 <button>All</button>
@@ -47,8 +48,17 @@
                         <td>jan.levinson@paper.co</td>
                         <td>The Paper Company</td>
                         <td><span class="sales">SALES LEAD</span></td>
-                        <td><a href="#">View</a></td>
+                        <td><a href="#" class="purple">View</a></td>
                     </tr>
+
+                    <tr>
+                        <td>Ms. Jan Levinson</td>
+                        <td>jan.levinson@paper.co</td>
+                        <td>The Paper Company</td>
+                        <td><span class="support">SUPPORT</span></td>
+                        <td><a href="#" class="purple">View</a></td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>

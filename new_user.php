@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body class="app">
 
     <?php include_once 'layouts/header.php' ?>
     <?php include_once 'layouts/menu.php' ?>
@@ -19,37 +19,39 @@
 
         <h1>New User</h1>
 
-        <form action="" method="post">
+        <form action="" method="post" class="box">
 
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name" required>
+            <div class="form-field no-margin">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
 
-            <br>
+            <div class="form-field no-margin">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+                
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+                
+            <div class="form-field">
+                <label for="password">Password:</label> 
+                <input type="password" id="password" name="password" required>
+            </div>
+                
+            <div class="form-field">
+                <label for="role">Role</label>
+                <select id="role" name="role">
+                    <option value="admin">Admin</option>
+                    <option value="member">Member</option>
+                </select>
+            </div>
 
-            <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" name="last-name" required>
-
-            <br>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <br>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
-            <br>
-
-            <label for="role">Role</label>
-            <select id="role" name="role">
-                <option value="admin">Admin</option>
-                <option value="member">Member</option>
-            </select>
-
-            <br>
-
-            <button type="submit">Save</button>
+            <div class="form-field full">
+                <button class="auto-right" type="submit">Save</button>
+            </div>
 
         </form>
 

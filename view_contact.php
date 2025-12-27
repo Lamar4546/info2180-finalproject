@@ -10,35 +10,49 @@
 
 </head>
 
-<body>
+<body class="app">
 
     <?php include_once 'layouts/header.php' ?>
     <?php include_once 'layouts/menu.php' ?>
     
     <main>
 
-        <h1>Mr. Michael Scott</h1>
-        <button>Assign to me</button>
-        <button>Switch to Sales Lead</button>
+        <div class="flex space-between">
 
-        <div class="wrapper">
+            <h1>Mr. Michael Scott</h1>
 
             <div>
+
+                <button>Assign to me</button>
+                <button>Switch to Sales Lead</button>
+
+            </div>
+
+        </div>
+
+        <p class="small-font">
+            Created on November 9, 2022 by David Wallace <br>
+            Updated on November 13, 2022
+        </p>
+
+        <div class="box wrapper">
+
+            <div class="wrap-item no-margin">
                 <span>Email</span>
                 michael.scott@paper.co
             </div>
 
-            <div>
+            <div class="wrap-item no-margin">
                 <span>Telephone</span>
                 876-999-9999
             </div>
 
-            <div>
+            <div class="wrap-item">
                 <span>Company</span>
                 The Paper Company
             </div>
 
-            <div>
+            <div class="wrap-item">
                 <span>Assigned To</span>
                 Jen Levinson
             </div>
@@ -47,37 +61,54 @@
 
         <div class="box">
 
-            <div class="wrapper">
+            <h2>Notes</h2>
 
-                <ul>
+            <ul class="notes">
 
-                    <li>
+                <li>
 
-                        <div class="title">Notes</div>
+                    <div class="note">
 
-                            <div class="note">
+                        <span class="user">Jane Doe</span>
 
-                                <span class="user">Jane Doe</span>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl lectus, viverra id risus ac,
+                            ornare rutrum quam. In rhoncus.
+                        </p>
 
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl lectus, viverra id risus ac,
-                                    ornare rutrum quam. In rhoncus.
-                                </p>
+                        <span class="date small-font">November 10, 2022 at 4pm</span>
 
-                                <span class="date">November 10, 2022 at 4pm</span>
+                    </div>
 
-                            </div>
+                </li>
 
-                    </li>
+                <li>
 
-                </ul>
+                    <div class="note">
+
+                        <span class="user">Jane Doe</span>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl lectus, viverra id risus ac,
+                            ornare rutrum quam. In rhoncus.
+                        </p>
+
+                        <span class="date small-font">November 10, 2022 at 4pm</span>
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+            <div id="add-note">
+
+                <span class="bold">Add a note about Michael</span>
+
+                <textarea name="note" id="note"></textarea>
+                <button class="auto-right">Add Note</button>
 
             </div>
-
-            Add a note about Michael
-
-            <textarea name="note" id="note"></textarea>
-            <button>Add Note</button>
 
         </div>
 
