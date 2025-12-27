@@ -1,62 +1,62 @@
-<?php
-session_start();
-require_once 'database.php';
-
-// Check if user is logged in
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.html');
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Dolphin CRM</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styling.css">
+    <title>Dashboard</title>
+
 </head>
+
 <body>
-    <div class="dashboard-container">
-        <header>
-            <h1>Dolphin CRM Dashboard</h1>
-            <div class="user-info">
-                <span>Welcome, <?php echo htmlspecialchars($_SESSION['user_firstname'] . ' ' . $_SESSION['user_lastname']); ?></span>
-                <a href="logout.php">Logout</a>
+
+    <?php include_once 'layouts/header.php' ?>
+    <?php include_once 'layouts/menu.php' ?>
+    
+    <main>
+
+        <h1>Users</h1>
+        <button>Add User</button>
+
+        <div class="wrapper">
+
+            <div id="filter">
+                Filter by: 
+                <button>All</button>
+                <button>Sales Leads</button>
+                <button>Support</button>
+                <button>Assigned to me</button>
             </div>
-        </header>
-        
-        <?php if ($_SESSION['user_role'] === 'Admin'): ?>
-        <div class="users-container">
-            <h2>Users</h2>
-            <button id="addUserBtn" onclick="location.href='add_user.html'">Add User</button>
-            
-            <table id="usersTable">
+
+            <table>
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Role</th>
-                        <th>Created</th>
+                        <th>Company</th>
+                        <th>Type</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
-                <tbody id="usersTableBody">
+
+                <tbody>
                     <tr>
-                        <td colspan="4">Loading...</td>
+                        <td>Ms. Jan Levinson</td>
+                        <td>jan.levinson@paper.co</td>
+                        <td>The Paper Company</td>
+                        <td><span class="sales">SALES LEAD</span></td>
+                        <td><a href="#">View</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <?php else: ?>
-        <div class="content">
-            <h2>Welcome to Dolphin CRM</h2>
-            <p>You are logged in as a <?php echo htmlspecialchars($_SESSION['user_role']); ?>.</p>
-        </div>
-        <?php endif; ?>
-    </div>
 
-    <?php if ($_SESSION['user_role'] === 'Admin'): ?>
-    <script src="js/users.js"></script>
-    <?php endif; ?>
+    </main>
+
+    <?php include_once 'layouts/footer.php' ?>
+
 </body>
+
 </html>
