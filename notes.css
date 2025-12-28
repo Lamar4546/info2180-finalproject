@@ -1,0 +1,136 @@
+/* AJAX Loading States */
+#notes-list.loading {
+    opacity: 0.6;
+}
+
+#notes-list.loading::after {
+    content: 'Loading notes...';
+    display: block;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+/* Note Styling */
+.note {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-left: 3px solid #5b5df1;
+    border-radius: 3px;
+}
+
+.note .user {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.note p {
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #555;
+}
+
+.note .date {
+    display: block;
+    color: #777;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Error State */
+.note.error {
+    border-left-color: #dc3545;
+    background-color: #f8d7da;
+}
+
+.note.error p {
+    color: #721c24;
+    margin: 0;
+}
+
+/* Form Styling */
+#add-note {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+#add-note .bold {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+#add-note textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.95em;
+    min-height: 100px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+#add-note textarea:focus {
+    outline: none;
+    border-color: #5b5df1;
+}
+
+#add-note button {
+    margin-top: 10px;
+    background-color: #5b5df1;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#add-note button:hover {
+    background-color: #4a4cd9;
+}
+
+#add-note button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Button States for AJAX Actions */
+button.ajax-loading {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* Animation for new notes */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notes li:last-child .note {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Additional spacing for notes list */
+.notes {
+    margin: 0;
+    padding: 0;
+}
+
+.notes li {
+    list-style: none;
+    margin-bottom: 15px;
+}
