@@ -74,7 +74,7 @@
 
     <?php include_once 'layouts/footer.php' ?>
     
-    <script src="notes.js"></script>
+    <script src="ajax.js"></script>
     <script src="contact_ajax.js"></script>
 </body>
 </html>
