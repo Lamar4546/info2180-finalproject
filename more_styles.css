@@ -1,0 +1,25 @@
+/* Add to existing styling.css */
+button {
+    padding: 8px 16px;
+    background-color: #5b5df1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4a4cd9;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* For AJAX loading buttons */
+.ajax-loading {
+    position: relative;
+    opacity: 0.6;
+    cursor: wait;
+}
