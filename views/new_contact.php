@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>New Contact</title>
 
 </head>
@@ -22,6 +22,14 @@
         <div class="wrapper">
 
             <form action="" method="post">
+                <label for="title">Title:</label>
+                <select id="title" name="title">
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Ms">Ms</option>
+                </select>
+
+                <br>
 
                 <label for="first-name">First Name:</label>
                 <input type="text" id="first-name" name="first-name" required>

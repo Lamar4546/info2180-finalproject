@@ -19,7 +19,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     .then(data => {
         if (data.success) {
             // Redirect to dashboard
-            window.location.href = 'dashboard.php';
+            window.location.href = 'views/dashboard.php';
         } else {
             errorDiv.textContent = data.message;
             errorDiv.style.display = 'block';
