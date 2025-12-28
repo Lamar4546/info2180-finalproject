@@ -1,3 +1,14 @@
+<?php
+session_start();
+require_once 'init.php';
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styling.css">
     <title>Document</title>
+
+    <script src="js/user/add_user.js"></script>
 
 </head>
 
@@ -19,16 +32,16 @@
 
         <h1>New User</h1>
 
-        <form action="" method="post" class="box">
+        <form action="" method="post" class="box" id="addUserForm">
 
             <div class="form-field no-margin">
                 <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required>
+                <input type="text" id="first-name" name="firstname" required>
             </div>
 
             <div class="form-field no-margin">
                 <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required>
+                <input type="text" id="last-name" name="lastname" required>
             </div>
                 
             <div class="form-field">
@@ -44,14 +57,16 @@
             <div class="form-field">
                 <label for="role">Role</label>
                 <select id="role" name="role">
-                    <option value="admin">Admin</option>
-                    <option value="member">Member</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Member">Member</option>
                 </select>
             </div>
 
             <div class="form-field full">
                 <button class="auto-right" type="submit">Save</button>
             </div>
+
+            <div id="message"></div>
 
         </form>
 

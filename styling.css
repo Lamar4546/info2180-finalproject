@@ -267,6 +267,11 @@ form .form-field.full
     margin-top: 2em;
 }
 
+#error-message
+{
+    margin-top: 20px;
+}
+
 table
 {
     border-collapse: collapse; /* ensures clean single borders */

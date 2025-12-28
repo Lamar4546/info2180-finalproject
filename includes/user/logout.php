@@ -11,8 +11,5 @@ if (isset($_COOKIE[session_name()])) {
 
 // Destroy the session
 session_destroy();
-
-// Redirect to login page
-header('Location: login.html');
 exit;
 ?>

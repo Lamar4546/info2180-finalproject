@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadUsers() {
-    fetch('users.php')
+    fetch('includes/user/users.php')
     .then(response => response.json())
     .then(data => {
         if (data.success) {

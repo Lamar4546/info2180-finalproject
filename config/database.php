@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'dolphin_crm';
 $username = 'root';  // Change to your MySQL username
-$password = '';      // Change to your MySQL password
+$password = 'Fifa201!';      // Change to your MySQL password
 
 try {
     // Create PDO instance
@@ -19,6 +19,7 @@ try {
     );
 } catch (PDOException $e) {
     // In production, log this error and show generic message
+    error_log("Database connection failed: " . $e->getMessage());
     die("Database connection failed: " . $e->getMessage());
 }
 ?>

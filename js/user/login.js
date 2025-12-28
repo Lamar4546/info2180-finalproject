@@ -1,4 +1,8 @@
-document.getElementById('loginForm').addEventListener('submit', function(e) {
+window.addEventListener('load', initialize);
+
+function initialize()
+{
+    document.getElementById('login-button').addEventListener('click', function(e) {
     e.preventDefault();
     
     const email = document.getElementById('email').value;
@@ -11,7 +15,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     formData.append('password', password);
     
     // Send AJAX request
-    fetch('login.php', {
+    fetch('includes/user/login.php', {
         method: 'POST',
         body: formData
     })
@@ -30,3 +34,4 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         errorDiv.style.display = 'block';
     });
 });
+}

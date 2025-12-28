@@ -1,3 +1,14 @@
+<?php
+session_start();
+require_once 'init.php';
+
+// Check if user is logged in
+if (isset($_SESSION['user_id'])) {
+    header('Location: dashboard.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styling.css">
     <title>Document</title>
+
+    <script src="js/user/login.js"></script>
 
 </head>
 
@@ -18,15 +31,17 @@
 
         <h1>Login</h1>
 
-        <form action="" method="post">
+        <form>
 
             <label for="email-address">Email:</label>
-            <input type="email" id="email-address" name="email-address" required>
+            <input type="email" id="email" name="email-address" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-            <button>Login</button>
+            <button id="login-button">Login</button>
+
+            <div id="error-message"></div>
 
         </form>
 

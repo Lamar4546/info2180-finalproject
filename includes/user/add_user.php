@@ -1,6 +1,9 @@
 <?php
 session_start();
-require_once 'database.php';
+require_once '../../init.php';
+
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/app_errors.log'); // path to your log file
 
 header('Content-Type: application/json');
 
@@ -10,12 +13,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'Admin') {
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
-    $lastname = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING);
+if ($_SERVER['REQUEST_METHOD'] === 'POST')
+{
+    $firstname = trim(filter_input(INPUT_POST, 'firstname', FILTER_UNSAFE_RAW));
+    $lastname = trim(filter_input(INPUT_POST, 'lastname', FILTER_UNSAFE_RAW));
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
-    $role = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_STRING);
+    $role = trim(filter_input(INPUT_POST, 'role', FILTER_UNSAFE_RAW));
     
     // Validate inputs
     if (empty($firstname) || empty($lastname) || empty($email) || empty($password) || empty($role)) {
@@ -29,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     if (!in_array($role, ['Admin', 'Member'])) {
-        echo json_encode(['success' => false, 'message' => 'Invalid role']);
+        echo json_encode(['success' => false, 'message' => 'Invalid role: ' . $role]);
         exit;
     }
     
