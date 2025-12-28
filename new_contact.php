@@ -91,7 +91,7 @@ if (!isset($_SESSION['user_id'])) {
     </main>
 
     <?php include_once 'layouts/footer.php' ?>
-    <script src="../js/new_contact.js"></script>
+    <script src="../js/user/new_contact.js"></script>
 
 </body>
 
