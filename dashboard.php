@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_id'])) {
 
         <div class="flex space-between">
             <h1>Dashboard</h1>
-            <button>Add Contact</button>
+            <a href="new_contact.php">Add Contact</a>
         </div>
 
         <div class="box">
