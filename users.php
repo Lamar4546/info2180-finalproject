@@ -15,10 +15,14 @@ try {
     $conn = getConnection();
     
     // Fetch all users
-    $sql = "SELECT id, firstname, lastname, email, role, created_at 
+   $sql = "SELECT id, 
+                   first_name as firstname, 
+                   last_name as lastname, 
+                   email, 
+                   role, 
+                   created_at 
             FROM Users 
             ORDER BY created_at DESC";
-    
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     

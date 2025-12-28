@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id']) || strtolower($_SESSION['user_role']) !== 'admi
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styling.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>Users - Dolphin CRM</title>
 </head>
 
@@ -26,7 +26,7 @@ if (!isset($_SESSION['user_id']) || strtolower($_SESSION['user_role']) !== 'admi
     <main>
         <div class="page-header">
             <h1>Users</h1>
-            <button class="btn-add-user" onclick="location.href='new_user.php'">
+            <button class="btn-add-user" onclick="location.href='../add_user.html'">
                 <span>+</span> Add User
             </button>
         </div>

@@ -21,4 +21,9 @@ try {
     // In production, log this error and show generic message
     die("Database connection failed: " . $e->getMessage());
 }
+
+function getConnection() {
+    global $pdo;
+    return $pdo;
+}
 ?>

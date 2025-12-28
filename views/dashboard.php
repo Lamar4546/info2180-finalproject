@@ -15,6 +15,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
     <title>Dashboard - Dolphin CRM</title>
+     <span>Welcome, <?php echo htmlspecialchars($_SESSION['user_firstname'] . ' ' . $_SESSION['user_lastname']); ?></span>
 </head>
 <body>
     <?php include_once 'layouts/header.php' ?>
