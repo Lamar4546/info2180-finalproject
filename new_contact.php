@@ -75,8 +75,8 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <div class="form-field">
-                <label for="assigned-to">Assigned To</label>
-                <select id="assigned-to" name="assigned-to">
+                <label for="assigned_to">Assigned To</label>
+                <select id="assigned_to" name="assigned-to">
                     <option value="Andy">Andy Bernard</option>
                     <option value="Joshua">Joshua Smith</option>
                 </select>
