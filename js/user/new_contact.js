@@ -1,11 +1,8 @@
-document.addEventListener('DOMContentLoaded', function () {
-
+document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form.box');
-    if (!form) {
-        console.error('Form not found');
-        return;
-    }
+    if (!form) return console.error('Form not found');
 
+    // Message div
     let messageDiv = document.getElementById('message');
     if (!messageDiv) {
         messageDiv = document.createElement('div');
@@ -13,44 +10,44 @@ document.addEventListener('DOMContentLoaded', function () {
         form.prepend(messageDiv);
     }
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
-
         messageDiv.textContent = '';
         messageDiv.className = '';
 
-        const formData = new FormData();
-        formData.append('title', document.getElementById('title').value);
-        formData.append('first_name', document.getElementById('first_name').value.trim());
-        formData.append('last_name', document.getElementById('last_name').value.trim());
-        formData.append('email', document.getElementById('email').value.trim());
-        formData.append('telephone', document.getElementById('telephone').value.trim());
-        formData.append('company', document.getElementById('company').value.trim());
-        formData.append('type', document.getElementById('type').value);
-        formData.append('assigned_to', document.getElementById('assigned-to').value);
+        const formData = new FormData(form);
 
-        fetch('/info2180-finalproject/add_contact.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
+        fetch('add_contact.php', { method: 'POST', body: formData })
+        .then(response => response.text())
+        .then(text => {
+            console.log('Raw response:', text); // Debug log
+            
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch (err) {
+                console.error('Invalid JSON response:', text);
+                messageDiv.textContent = 'Server error. Check console.';
+                messageDiv.className = 'error';
+                return;
+            }
+
             if (data.success) {
-                messageDiv.textContent = data.message || 'Contact added successfully!';
+                messageDiv.textContent = data.message;
                 messageDiv.className = 'success';
                 form.reset();
-
-                setTimeout(() => {
-                    window.location.href = 'dashboard.php';
+                // Fixed the redirect path - removed extra slash and dots
+                setTimeout(() => { 
+                    window.location.href = 'dashboard.php'; 
                 }, 1500);
             } else {
-                messageDiv.textContent = data.message || 'Failed to add contact';
+                messageDiv.textContent = data.message;
                 messageDiv.className = 'error';
             }
         })
-        .catch(error => {
-            console.error(error);
-            messageDiv.textContent = 'An error occurred. Please try again.';
+        .catch(err => {
+            console.error(err);
+            messageDiv.textContent = 'Network error. Try again.';
             messageDiv.className = 'error';
         });
     });
