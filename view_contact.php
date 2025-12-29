@@ -84,50 +84,24 @@ try {
 
             <div class="wrap-item">
                 <span>Assigned To</span>
-<<<<<<< HEAD
-                <span id="assigned-to">Jen Levinson</span>
-=======
                 <span id="assigned-to"><?php echo isset($contact['assigned_to']) ? htmlspecialchars($contact['assigned_to']) : 'Unassigned'; ?></span>
->>>>>>> implementation
             </div>
         </div>
 
         <div class="box">
             <h2>Notes</h2>
-<<<<<<< HEAD
-
-            <ul class="notes" id="notes-list">
-                <!-- Notes will be loaded here via AJAX -->
-                <li>
-                    <div class="note">
-                        <p>Loading notes...</p>
-                    </div>
-                </li>
-            </ul>
-
-            <div id="add-note">
-                <span class="bold">Add a note about Michael</span>
-                <textarea name="note" id="note" placeholder="Enter your note here..."></textarea>
-=======
             <ul class="notes" id="notes-list">
             </ul>
 
             <div id="add-note">
                 <span class="bold">Add a note about <?php echo htmlspecialchars($contact['first_name']); ?></span>
                 <textarea name="note" id="note"></textarea>
->>>>>>> implementation
                 <button class="auto-right" id="add-note-btn">Add Note</button>
             </div>
         </div>
     </main>
 
     <?php include_once 'layouts/footer.php' ?>
-<<<<<<< HEAD
-    
-    <script src="ajax.js"></script>
-    <script src="contact_ajax.js"></script>
-=======
     <script src="_temp/all_contact/ajax.js"></script>
->>>>>>> implementation
 </body>
 </html>
