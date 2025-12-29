@@ -1,3 +1,14 @@
+<?php
+session_start();
+require_once 'init.php';
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styling.css">
     <title>Document</title>
+
+    <script src="js/user/users.js"></script>
 
 </head>
 
@@ -19,11 +32,11 @@
 
         <div class="flex space-between">
             <h1>Users</h1>
-            <button>Add User</button>
+            <a href="new_user.php">Add User</a>
         </div>
         
         <div class="box">
-            <table>
+            <table id="usersTable">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -33,12 +46,9 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="usersTableBody">
                     <tr>
-                        <td>Ms. Jan Levinson</td>
-                        <td>jan.levinson@paper.co</td>
-                        <td>Member</td>
-                        <td>2022-11-13 11:00</td>
+                        <td colspan="4">Loading</td>
                     </tr>
                 </tbody>
             </table>

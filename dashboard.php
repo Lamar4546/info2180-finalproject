@@ -1,3 +1,16 @@
+<?php
+session_start();
+require_once 'init.php';
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
+
+$user_id = $_SESSION['user_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,19 +32,19 @@
 
         <div class="flex space-between">
             <h1>Dashboard</h1>
-            <button>Add Contact</button>
+            <a href="new_contact.php">Add Contact</a>
         </div>
 
         <div class="box">
             <div id="filter">
                 Filter by: 
-                <button>All</button>
-                <button>Sales Leads</button>
-                <button>Support</button>
-                <button>Assigned to me</button>
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sales">Sales Leads</button>
+                <button class="filter-btn" data-filter="support">Support</button>
+                <button class="filter-btn" data-filter="assigned">Assigned to me</button>
             </div>
 
-            <table>
+            <table id="contacts-table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -42,7 +55,8 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="contacts-tbody">
+                    <!-- Static example data that stays -->
                     <tr>
                         <td>Ms. Jan Levinson</td>
                         <td>jan.levinson@paper.co</td>
@@ -58,7 +72,7 @@
                         <td><span class="support">SUPPORT</span></td>
                         <td><a href="#" class="purple">View</a></td>
                     </tr>
-
+                    <!-- Dynamic contacts will be added below -->
                 </tbody>
             </table>
         </div>
@@ -66,6 +80,11 @@
     </main>
 
     <?php include_once 'layouts/footer.php' ?>
+    
+    <script>
+        const userId = <?php echo $user_id; ?>;
+    </script>
+    <script src="js/user/dashboard.js"></script>
 
 </body>
 
