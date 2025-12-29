@@ -17,7 +17,7 @@
     
     // Get and validate input
     $contact_id = filter_input(INPUT_POST, 'contact_id', FILTER_VALIDATE_INT);
-    $comment = trim(filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_STRING));
+    $comment = trim(filter_input(INPUT_POST, 'comment', FILTER_UNSAFE_RAW));
 
     // Validate inputs
     if (!$contact_id) {
