@@ -28,6 +28,14 @@ try {
         header('Location: dashboard.php');
         exit;
     }
+
+    $stmt = $pdo->prepare("SELECT first_name, last_name FROM users WHERE id = ?");
+    $stmt->execute([$contact['assigned_to']]);
+    $assigned = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $assignedToFullName = $assigned['first_name'] . " " . $assigned['last_name'];
+
+
 } catch (PDOException $e) {
     error_log('Database error: ' . $e->getMessage());
     header('Location: dashboard.php');
@@ -84,7 +92,7 @@ try {
 
             <div class="wrap-item">
                 <span>Assigned To</span>
-                <span id="assigned-to"><?php echo isset($contact['assigned_to']) ? htmlspecialchars($contact['assigned_to']) : 'Unassigned'; ?></span>
+                <span id="assigned-to"><?php echo isset($assignedToFullName) ? htmlspecialchars($assignedToFullName) : 'Unassigned'; ?></span>
             </div>
         </div>
 
