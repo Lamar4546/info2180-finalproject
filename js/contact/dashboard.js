@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 2rem;">Loading contacts...</td></tr>';
 
         // Try relative path first
-        fetch(`get_contacts.php?filter=${filter}`)
+        fetch(`includes/contact/get_contacts.php?filter=${filter}`)
             .then(response => {
                 console.log('Response status:', response.status); // Debug log
                 if (!response.ok) {

@@ -7,6 +7,43 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
 }
+
+$contactId = isset($_GET['id']) ? $_GET['id'] : '-1';
+
+if ($contactId > -1)
+{
+    try
+    {
+        $conn = $pdo;
+
+        $sql = "SELECT * FROM contacts WHERE id=" . $contactId;
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $createdAt = date('F j, Y', strtotime($contact['created_at']));
+        $updatedAt = date('F j, Y', strtotime($contact['updated_at']));
+
+        $sql = "SELECT first_name, last_name from users WHERE id = " . $contact['assigned_to'];
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        $assignedUser = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $assignedTo = $assignedUser['first_name'] . " " . $assignedUser['last_name'];
+    }
+    catch(PDOException $e)
+    {
+        error_log("Database error in view_contacts.php: " . $e->getMessage());
+    }
+    catch (Exception $e) {
+        error_log("Error in view_contacts.php: " . $e->getMessage());
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +67,7 @@ if (!isset($_SESSION['user_id'])) {
 
         <div class="flex space-between">
 
-            <h1>Mr. Michael Scott</h1>
+            <h1><?= $contact['title'] . ". " . $contact['first_name'] . " " . $contact['last_name'] ?></h1>
 
             <div>
 
@@ -42,8 +79,8 @@ if (!isset($_SESSION['user_id'])) {
         </div>
 
         <p class="small-font">
-            Created on November 9, 2022 by David Wallace <br>
-            Updated on November 13, 2022
+            Created on <?= $createdAt ?> by <?= $assignedTo ?> <br>
+            Updated on <?= $updatedAt ?>
         </p>
 
         <div class="box wrapper">

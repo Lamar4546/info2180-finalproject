@@ -3,7 +3,7 @@ ob_start();
 session_start();
 
 // Include the database configuration
-require_once 'config/database.php';
+require_once '../../init.php';
 
 header('Content-Type: application/json');
 

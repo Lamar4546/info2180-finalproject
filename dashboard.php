@@ -21,6 +21,8 @@ $user_id = $_SESSION['user_id'];
     <link rel="stylesheet" href="styling.css">
     <title>Dashboard</title>
 
+    <script src="js/contact/dashboard.js"></script>
+
 </head>
 
 <body class="app">
@@ -84,7 +86,6 @@ $user_id = $_SESSION['user_id'];
     <script>
         const userId = <?php echo $user_id; ?>;
     </script>
-    <script src="js/user/dashboard.js"></script>
 
 </body>
 

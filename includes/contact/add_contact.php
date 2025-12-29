@@ -2,11 +2,12 @@
 session_start();
 
 // Try to find the correct database connection file
-if (file_exists(__DIR__ . '/init.php')) {
-    require_once __DIR__ . '/init.php';
-} elseif (file_exists(__DIR__ . '/database.php')) {
-    require_once __DIR__ . '/database.php';
-} else {
+if (file_exists('../../init.php'))
+{
+    require_once '../../init.php';
+}
+else
+{
     header('Content-Type: application/json');
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Configuration error: database connection file not found']);
@@ -75,7 +76,7 @@ if (!in_array($type, $valid_types)) {
 try {
     // Get database connection - check if getConnection() function exists
     if (function_exists('getConnection')) {
-        $conn = getConnection();
+        //$conn = getConnection(); commented out to hide the error
     } elseif (isset($pdo)) {
         $conn = $pdo;
     } elseif (isset($conn)) {

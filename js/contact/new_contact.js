@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const formData = new FormData(form);
 
-        fetch('add_contact.php', { method: 'POST', body: formData })
+        fetch('includes/contact/add_contact.php', { method: 'POST', body: formData })
         .then(response => response.text())
         .then(text => {
             console.log('Raw response:', text); // Debug log

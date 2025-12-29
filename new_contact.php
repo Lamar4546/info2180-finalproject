@@ -20,6 +20,8 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="styling.css">
     <title>New Contact</title>
 
+    <script src="js/contact/new_contact.js"></script>
+
 </head>
 
 <body class="app">
@@ -30,8 +32,6 @@ if (!isset($_SESSION['user_id'])) {
     <main>
 
         <h1>New Contact</h1>
-
-        <div id="message"></div>
 
         <form action="" method="post" class="box">
 
@@ -89,12 +89,13 @@ if (!isset($_SESSION['user_id'])) {
                 <button type="submit" class="auto-right">Save</button>
             </div>
 
+            <div id="message"></div>
+
         </form>
 
     </main>
 
     <?php include_once 'layouts/footer.php' ?>
-    <script src="js/user/new_contact.js"></script>
 
 </body>
 
