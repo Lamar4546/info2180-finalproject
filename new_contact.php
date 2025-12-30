@@ -7,6 +7,12 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
 }
+try {
+    $stmt = $pdo->query("SELECT id, first_name, last_name FROM users ORDER BY first_name, last_name");
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    $users = [];
+}
 
 ?>
 
@@ -77,11 +83,24 @@ if (!isset($_SESSION['user_id'])) {
                 </select>
             </div>
 
-            <div class="form-field">
+         
+                <div class="form-field">
                 <label for="assigned_to">Assigned To</label>
-                <select id="assigned_to" name="assigned_to">
-                    <option value="1">Andy Bernard</option>
-                    <option value="2">Joshua Smith</option>
+                <select id="assigned_to" name="assigned_to" required>
+                    <option value="">Select a user</option>
+                    <!-- Hardcoded options -->
+                    <option value="4">Andy Bernard</option>
+                    <option value="5">Joshua Smith</option>
+                    <!-- Dynamic users from database -->
+                    <?php foreach ($users as $user): ?>
+                        <?php 
+                        // Skip if ID is 1 or 2 to avoid duplicates
+                        if ($user['id'] == 4 || $user['id'] == 5) continue;
+                        ?>
+                        <option value="<?php echo htmlspecialchars($user['id']); ?>">
+                            <?php echo htmlspecialchars($user['first_name'] . ' ' . $user['last_name']); ?>
+                        </option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 

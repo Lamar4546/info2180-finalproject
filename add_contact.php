@@ -73,10 +73,8 @@ if (!in_array($type, $valid_types)) {
 }
 
 try {
-    // Get database connection - check if getConnection() function exists
-    if (function_exists('getConnection')) {
-        $conn = getConnection();
-    } elseif (isset($pdo)) {
+    // Get database connection - check which variable is available
+    if (isset($pdo)) {
         $conn = $pdo;
     } elseif (isset($conn)) {
         // $conn already exists from init/database file
